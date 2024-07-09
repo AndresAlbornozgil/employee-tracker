@@ -85,7 +85,35 @@ function loadQuestions() {
         break;
 
 }});
-
 };
 
 loadQuestions()
+
+// Functions
+function viewDepartments() {
+    // Database query will go here. GET routes
+}
+
+function viewRoles() {
+    // GET routes. some kind of join, perhapos only one.
+}
+
+function viewEmployess() {
+    // GET routes & some kind of join, maybe multiple joints.
+}
+
+function addDepartment() {
+    // Additional inquirer prompt needed, then will do database query. POST route
+}
+
+function addNote() {
+    // POST route
+}
+
+function addEmployee() {
+    // POST route
+}
+
+function updateRole() {
+    // PUT route will be used here. More inquirer prompts.
+}
