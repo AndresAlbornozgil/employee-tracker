@@ -26,13 +26,13 @@ VALUES ('IT Support', 55000, 1),
 ('Administrative Supervisor', 55000, 16);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES (Liam, Hawthorne, 1, 1),
-(Aria, Montgomery, 2, 2),
-(Ethan, Blackwood, 3, 3),
-(Luna, Whitfield, 4, 4),
-(Noah, Kensington, 5, 5),
-(Violet, Everly, 6, 6),
-(Caleb, Ashford, 7, 7),
-(Ruby, Sinclair, 8, 8),
-(Owen, Thorne, 9, 9),
-(Zara, Kingsley, 10, 10);
+VALUES ('Liam', 'Hawthorne', 1, 1),
+('Aria', 'Montgomery', 2, 2),
+('Ethan', 'Blackwood', 3, 3),
+('Luna', 'Whitfield', 4, 4),
+('Noah', 'Kensington', 5, 5),
+('Violet', 'Everly', 6, 6),
+('Caleb', 'Ashford', 7, 7),
+('Ruby', 'Sinclair', 8, 8),
+('Owen', 'Thorne', 9, 9),
+('Zara', 'Kingsley', 10, 10);

@@ -1,6 +1,5 @@
 const { prompt } = require('inquirer');
-
-
+const dbConnection = require('./db/queries');
 
 function loadQuestions() {
     prompt([ 
@@ -61,7 +60,7 @@ function loadQuestions() {
         break;
 
         case 'view_employees':
-        viewEmployess();
+        viewEmployees();
         break;
 
         case 'add_department':
@@ -92,13 +91,17 @@ loadQuestions()
 // Functions
 function viewDepartments() {
     // Database query will go here. GET routes
+    dbConnection.findAllDepartments().then((result) => {
+        const departments = result.rows
+        console.table(departments)
+    })
 }
 
 function viewRoles() {
     // GET routes. some kind of join, perhapos only one.
 }
 
-function viewEmployess() {
+function viewEmployees() {
     // GET routes & some kind of join, maybe multiple joints.
 }
 
