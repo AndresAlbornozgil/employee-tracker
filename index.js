@@ -113,14 +113,43 @@ function viewEmployees() {
 function addDepartment() {
     // Ask for department name
     // Run dbconnection.addDepartment
+    prompt([
+        {
+            name: 'name',
+            message: 'What is the name of the department',
+        }
+    ]).then((response) => {
+        dbConnection.addDepartment(response).then(() => {
+            console.log(`Added ${response.name}`)
+            loadQuestions()
+    })
+    })
 }
 
 function addRole() {
     // Ask for tile
     // Ask for salary
     // Ask for department_id
-    // Run dbconnection.addDepartment
-
+    // Run dbconnection.addRole
+    prompt([
+        {
+            name: 'title',
+            message: 'What is the title of the role',
+        },
+        {
+            name: 'salary',
+            message: 'What is the salary of the role',
+        },
+        {
+            name: 'department_id',
+            message: 'What is the department_id of the role',
+        }
+    ]).then((response) => {
+        dbConnection.addDepartment(response).then(() => {
+            console.log(`Added ${response.name}`)
+            loadQuestions()
+    })
+    })
 }
 
 function addEmployee() {
@@ -128,8 +157,30 @@ function addEmployee() {
     // Ask for last_name
     // Ask for role_id
     // Ask for manager_id
-    // Run dbconnection.addDepartment
-
+    // Run dbconnection.addEmployee
+    prompt([
+        {
+            name: 'first_name',
+            message: 'What is the first name of the employee',
+        },
+        {
+            name: 'last_name',
+            message: 'What is the last name of the employee',
+        },
+        {
+            name: 'role_id',
+            message: 'What is the role_id of the emplyee',
+        },
+        {
+            name: 'manager_id',
+            message: 'What is the manager_id of the employee',
+        }
+    ]).then((response) => {
+        dbConnection.addDepartment(response).then(() => {
+            console.log(`Added ${response.name}`)
+            loadQuestions()
+    })
+    })
 }
 
 function updateEmployeeRole() {

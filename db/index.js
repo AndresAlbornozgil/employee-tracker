@@ -27,23 +27,23 @@ class DatabaseConnection {
             JOIN department ON role.department_id = department.id`)
     }
 
-    addDepartment() {
-        
+    addDepartment(department) {
+        return this.query(`INSERT INTO department (name) VALUES ($1)`, [department.name])
     }
 
 
     addRole() {
-        
+        return this.query()
     }
 
 
     addEmployee() {
-        
+        return this.query()
     }
 
 
     updateEmployeeRole() {
-        
+        return this.query()
     }
 
 }
