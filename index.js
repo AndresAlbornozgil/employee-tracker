@@ -1,5 +1,5 @@
 const { prompt } = require('inquirer');
-const dbConnection = require('./db/queries');
+const dbConnection = require('./db/index.js');
 
 function loadQuestions() {
     prompt([ 
@@ -27,7 +27,7 @@ function loadQuestions() {
     },
     {
         name: 'add a role',
-        value: 'add_note'
+        value: 'add_role'
     },
     {
         name: 'add an employee',
@@ -52,23 +52,23 @@ function loadQuestions() {
 
     switch(choice) {
         case 'view_departments':
-        viewDepartments();
+        viewDepartments().then(loadQuestions);
         break;
 
         case 'view_roles':
-        viewRoles();
+        viewRoles().then(loadQuestions);
         break;
 
         case 'view_employees':
-        viewEmployees();
+        viewEmployees().then(loadQuestions);
         break;
 
         case 'add_department':
         addDepartment();
         break;
 
-        case 'add_note':
-        addNote();
+        case 'add_role':
+        addRole();
         break;
 
         case 'add_employee':
@@ -76,7 +76,7 @@ function loadQuestions() {
         break;
 
         case 'update_role':
-        updateRole();
+        updateEmployeeRole();
         break;
 
         case 'quit':
@@ -91,32 +91,48 @@ loadQuestions()
 // Functions
 function viewDepartments() {
     // Database query will go here. GET routes
-    dbConnection.findAllDepartments().then((result) => {
-        const departments = result.rows
-        console.table(departments)
+    return dbConnection.findAllDepartments().then((result) => {
+        console.table(result.rows)
     })
 }
 
 function viewRoles() {
     // GET routes. some kind of join, perhapos only one.
+    return dbConnection.findAllRoles().then((result) => {
+        console.table(result.rows)
+    })
 }
 
 function viewEmployees() {
     // GET routes & some kind of join, maybe multiple joints.
+    return dbConnection.findAllEmployees().then((result) => {
+        console.table(result.rows)
+    })
 }
 
 function addDepartment() {
-    // Additional inquirer prompt needed, then will do database query. POST route
+    // Ask for department name
+    // Run dbconnection.addDepartment
 }
 
-function addNote() {
-    // POST route
+function addRole() {
+    // Ask for tile
+    // Ask for salary
+    // Ask for department_id
+    // Run dbconnection.addDepartment
+
 }
 
 function addEmployee() {
-    // POST route
+    // Ask for first_name
+    // Ask for last_name
+    // Ask for role_id
+    // Ask for manager_id
+    // Run dbconnection.addDepartment
+
 }
 
-function updateRole() {
-    // PUT route will be used here. More inquirer prompts.
+function updateEmployeeRole() {
+    // Pick Employee
+    // Ask for new role
 }
