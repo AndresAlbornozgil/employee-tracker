@@ -145,8 +145,8 @@ function addRole() {
             message: 'What is the department_id of the role',
         }
     ]).then((response) => {
-        dbConnection.addDepartment(response).then(() => {
-            console.log(`Added ${response.name}`)
+        dbConnection.addRole(response).then(() => {
+            console.log(`Added ${response.title}`)
             loadQuestions()
     })
     })
@@ -176,8 +176,8 @@ function addEmployee() {
             message: 'What is the manager_id of the employee',
         }
     ]).then((response) => {
-        dbConnection.addDepartment(response).then(() => {
-            console.log(`Added ${response.name}`)
+        dbConnection.addEmployee(response).then(() => {
+            console.log(`Added ${response.first_name}`)
             loadQuestions()
     })
     })
@@ -189,5 +189,5 @@ function updateEmployeeRole() {
 }
 
 function quit() {
-    
+   console.log('Quit');
 }
