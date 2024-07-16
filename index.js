@@ -187,3 +187,7 @@ function updateEmployeeRole() {
     // Pick Employee
     // Ask for new role
 }
+
+function quit() {
+    
+}
